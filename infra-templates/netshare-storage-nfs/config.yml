@@ -1,0 +1,7 @@
+name: Netshare Storage Plugin
+description: |
+  Rancher Storage Plugin powered by Netshare 
+version:  v0.1.0
+category: Storage
+labels:
+  io.rancher.orchestration.supported: 'cattle,mesos,swarm'

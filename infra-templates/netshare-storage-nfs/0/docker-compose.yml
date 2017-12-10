@@ -1,0 +1,23 @@
+version: '2'
+services:
+  nfs-driver:
+    privileged: true
+    image: johannrichard/netshare-storage:v0.34
+    command: "nfs ${VERBOSE_MODE}"
+    network_mode: host
+    labels:
+      io.rancher.scheduler.global: 'true'
+      io.rancher.container.create_agent: 'true'
+      io.rancher.container.agent.role: environment
+      io.rancher.container.dns: 'true'
+    volumes:
+    - /run:/run:rw
+    - /var/run:/var/run:rw
+    - /dev:/host/dev:rw
+    - /run/docker/plugins:/run/docker/plugins:rw
+    - /var/lib/docker-volumes/netshare:/var/lib/docker-volumes/netshare:shared
+    logging:
+      driver: json-file
+      options:
+        max-size: 25m
+        max-file: '2'

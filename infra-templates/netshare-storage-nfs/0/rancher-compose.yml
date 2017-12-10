@@ -1,0 +1,19 @@
+.catalog:
+  name: "Netshare Storage NFS"
+  version: 0.1.0
+  description: |
+    Docker NFS storage plugin based on Netshare Storage Driver
+  minimum_rancher_version: v1.6.6-rc1
+  - variable: VERBOSE_MODE
+    label: Debug Mode
+    type: enum
+    description: Enable or disable verbose logging
+    default: '--verbose'
+    options:
+    - '--verbose'
+    - ''
+nfs-driver:
+  storage_driver:
+    name: nfs
+    scope: environment
+    volume_access_mode: multiHostRW
